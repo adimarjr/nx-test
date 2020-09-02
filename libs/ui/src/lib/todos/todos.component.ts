@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '@test-nx/api-interfaces';
 
 @Component({
@@ -11,9 +11,16 @@ export class TodosComponent implements OnInit {
   @Input()
   todos: Todo[];
 
+  @Output()
+  removed: EventEmitter<Todo> = new EventEmitter<Todo>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  remove(item: Todo) {
+    this.removed.emit(item);
   }
 
 }

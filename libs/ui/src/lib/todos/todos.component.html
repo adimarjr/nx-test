@@ -1,3 +1,6 @@
-<mat-list>
-    <mat-list-item *ngFor="let item of todos">{{item.name}}-{{item.status}}</mat-list-item>
-</mat-list>
+<mat-chip-list>
+    <mat-chip *ngFor="let item of todos" [removable]="true" (removed)="remove(item)" >
+        {{item.name}} - {{item.status}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+    </mat-chip>
+</mat-chip-list>

@@ -1,5 +1,5 @@
 <div>
-    <test-nx-todos [todos]="todos$ | async"></test-nx-todos>
+    <test-nx-todos [todos]="todos$ | async" (removed)="remove($event)"></test-nx-todos>
 </div>
 
 <div class="newTodo">

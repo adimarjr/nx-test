@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodosComponent } from './todos/todos.component';
-import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
     CommonModule,
-    MatListModule
+    MatIconModule,
+    MatChipsModule
   ],
   declarations: [TodosComponent],
   exports: [TodosComponent],

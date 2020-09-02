@@ -18,4 +18,9 @@ export class TodoService {
     return this.http.post<Todo>(this.resource, todo);
   }
 
+  updateStatus(item: Todo) {
+    item.status = 'completed';
+    return this.http.put(`${this.resource}/${item._id}`, item);
+  }
+
 }

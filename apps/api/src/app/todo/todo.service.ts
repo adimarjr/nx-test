@@ -6,6 +6,7 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class TodoService {
+  
   constructor(@InjectModel(TodoSchema.name) private todoModel: Model<TodoSchema>) {}
 
   async add(todo: Todo): Promise<Todo> {
@@ -14,6 +15,10 @@ export class TodoService {
   }
 
   async list(): Promise<Todo[]> {
-    return this.todoModel.find().exec();
+    return this.todoModel.find({ status: 'pending' }).exec();
+  }
+
+  async update(id: string, todo: Todo): Promise<Todo> {
+    return this.todoModel.findByIdAndUpdate({ _id: id }, todo).exec();
   }
 }

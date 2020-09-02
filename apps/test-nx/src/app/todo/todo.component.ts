@@ -29,4 +29,10 @@ export class TodoComponent implements OnInit {
       this.todoName = '';
     });
   }
+
+  remove(item: Todo) {
+    this.todoService.updateStatus(item).subscribe(_ => {
+      this.todos.next(this.todos.value.filter(todo => todo.name !== item.name));
+    });
+  }
 }
