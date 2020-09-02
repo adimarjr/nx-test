@@ -1,0 +1,12 @@
+<div>
+    <test-nx-todos [todos]="todos$ | async"></test-nx-todos>
+</div>
+
+<div class="newTodo">
+    <mat-form-field>
+        <input matInput placeholder="New to do" [(ngModel)]="todoName">
+    </mat-form-field>
+    <button mat-fab (click)="add()" type="button">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
